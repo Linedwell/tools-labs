@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="noindex,nofollow" />
+	<title>Formulaire pour ébauche de mangas et animes</title>
+
+	<link rel="stylesheet" type="text/css" href="css/skin.css" />
+	<script language="javascript" type="text/javascript" src="formulaire.js"></script>
+	<script language="javascript" type="text/javascript" src="util.js"></script>
+</head>
+<body class="mediawiki ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+			<div id="content">
+				<h1 class="firstHeading">Création d'ébauche de manga ou d'anime</h1>
+				<i>Cette page est un formulaire qui permet de générer le code wiki d'une ébauche de manga ou d'anime. Il faut premièrement compléter le formulaire puis valider avec le bouton « générer le modèle » en bas. Ce bouton peut être utilisé plusieurs fois consécutivement lorsque par exemple un champ a été modifié. Le code wiki généré n'a ensuite plus qu'à être copié-collé sur Wikipédia dans la zone d'édition de l'article à créer.
+				</i>
+				<div class="version">Version 1.4 : le code reste en perpétuelle évolution pour refléter les changements des articles et des catégories présentes sur Wikipédia. N'hésitez pas à passer sur la page de discussion pour demander des corrections, des modifications ou simplement des explications.</div>
+				<noscript>
+					<div class="warning">Merci d'activer JavaScript pour pouvoir utiliser le formulaire.</div>
+				</noscript>
+				<div id="warnMSIE" class="warning" style="display:none">Le formulaire ne fonctionne pas avec Microsoft Internet Explorer, merci d'utiliser un autre navigateur.</div>
+
+				<h2>Formulaire</h2>
+				<form action="">
+					<div class="formulaire">
+						<table>
+							<tbody>
+								<tr><td>Type d'article : </td><td><input type="radio" name="formRadio" checked="checked" value="formManga" onclick="toggleForm()"/>Manga<input type="radio" name="formRadio" value="formAnime" onclick="toggleForm()" />Anime</td></tr></tbody></table>
+							</div>
+							<div class="formulaire">
+								<table>
+									<tbody class="formCommon">
+										<tr><td>Titre : </td><td><input id="formTitre" type="text" /> <input id="formEbauche" type="checkbox" />ébauche ? </td></tr>
+										<tr><td>Titre kanji : </td><td><input id="formTitreKanji" type="text" /></td></tr>
+										<tr><td>Titre romaji : </td><td><input id="formTitreRomaji" type="text" /></td></tr>
+										<tr><td>Genre : </td><td><input id="formGenre" type="text" /></td></tr>
+									</tbody><tbody class="formManga">
+									<tr><td>Auteur : </td><td><input id="formMangaAuteur" type="text"/></td></tr>
+									<tr><td>Dessinateur : </td><td><input id="formMangaDessinateur" type="text" /></td></tr>
+								</tbody><tbody class="formCommon">
+								<tr><td>Origine : </td><td>
+									<select id="formOrigine"><option value="">—</option>
+										<option>Chine</option>
+										<option>Corée du nord</option>
+										<option>Corée du sud</option>
+										<option>France</option>
+										<option>Japon</option>
+									</select>
+								</td></tr>
+							</tbody><tbody class="formManga">
+							<tr><td>Format : </td><td>
+								<select id="formMangaFormat"><option value="">—</option>
+									<option>bd</option>
+									<option>one shot</option>
+									<option>roman</option>
+									<option>light novel</option>
+									<option>nouvelle</option>
+								</select>
+								<i>Si l'œuvre comporte plusieurs volumes choisir bd, sinon choisir one shot.</i>
+							</td></tr>
+							<tr><td>Type : </td><td>
+								<select id="formMangaType"><option value="">—</option>
+									<option>hentai</option>
+									<option>josei</option>
+									<option>kodomo</option>
+									<option>seinen</option>
+									<option>shōjo</option>
+									<option>shōnen</option>
+								</select>
+							</td></tr>
+							<tr><td>Éditeur original: </td><td><input id="formMangaEditeurOriginal" type="text" /></td></tr>
+							<tr><td>Éditeur francophone: </td><td><input id="formMangaEditeurFrancophone" type="text" /></td></tr>
+							<tr><td><a href="http://fr.wikipedia.org/wiki/Magazine_de_prépublication_de_manga">Prépublié :</a> </td><td><input id="formMangaPrepublie" type="text" /></td></tr>
+							<tr><td>Premier volume : </td><td>
+								<select id="formMangaPremierJour"><option value="">—</option>
+									<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+									<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+									<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+									<option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+									<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+									<option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+									<option>31</option>
+								</select>
+								<select id="formMangaPremierMois"><option value="">—</option>
+									<option>janvier</option><option>février</option><option>mars</option><option>avril</option><option>mai</option><option>juin</option>
+									<option>juillet</option><option>août</option><option>septembre</option><option>octobre</option><option>novembre</option><option>décembre</option>
+								</select>
+								<select id="formMangaPremierAnnee"><option value="">—</option>
+									<option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option>
+									<option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option>
+									<option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option>
+									<option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option>
+									<option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option>
+									<option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option>
+									<option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option>
+									<option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option>
+									<option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option>
+
+								</select>
+							</td></tr>
+							<tr><td>Dernier volume : </td><td>
+								<select id="formMangaDernierJour"><option value="">—</option>
+									<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+									<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+									<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+									<option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+									<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+									<option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+									<option>31</option>
+								</select>
+								<select id="formMangaDernierMois"><option value="">—</option>
+									<option>janvier</option><option>février</option><option>mars</option><option>avril</option><option>mai</option><option>juin</option>
+									<option>juillet</option><option>août</option><option>septembre</option><option>octobre</option><option>novembre</option><option>décembre</option>
+								</select>
+								<select id="formMangaDernierAnnee"><option value="">—</option>
+									<option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option>
+									<option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option>
+									<option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option>
+									<option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option>
+									<option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option>
+									<option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option>
+									<option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option>
+									<option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option>
+									<option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option>
+								</select>
+							</td></tr>
+							<tr><td>Sortie unique : </td><td>
+								<select id="formMangaSortieJour"><option value="">—</option>
+									<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+									<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+									<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+									<option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+									<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+									<option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+									<option>31</option>
+								</select>
+								<select id="formMangaSortieMois"><option value="">—</option>
+									<option>janvier</option><option>février</option><option>mars</option><option>avril</option><option>mai</option><option>juin</option>
+									<option>juillet</option><option>août</option><option>septembre</option><option>octobre</option><option>novembre</option><option>décembre</option>
+								</select>
+								<select id="formMangaSortieAnnee"><option value="">—</option>
+									<option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option>
+									<option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option>
+									<option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option>
+									<option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option>
+									<option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option>
+									<option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option>
+									<option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option>
+									<option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option>
+									<option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option>
+								</select>
+								<i> Ce champ n'est à renseigner que si l'ajout concerne un <a href="http://fr.wikipedia.org/wiki/one_shot_%28bande_dessin%C3%A9e%29">one shot</a>. Il ne sera de toute façon pas pris en compte dans le cas contraire.</i>
+							</td></tr>
+							<tr><td>Nombre de volumes : </td><td><input id="formMangaNombre" type="text" />
+							</td></tr>
+							<tr><td>Liste volumes : </td><td><input id="formMangaListe" type="text"/></td></tr>
+						</tbody>
+						<tbody class="formAnime">
+							<tr><td>Format : </td><td>
+								<select id="formAnimeFormat"><option value="">—</option>
+									<option>film</option>
+									<option>OAV</option>
+									<option>ONA</option>
+									<option>série</option>
+								</select>
+							</td></tr>
+							<tr><td>Réalisateurs : </td><td><input id="formAnimeRealisateur1" type="text" />,<input id="formAnimeRealisateur2" type="text" />,<input id="formAnimeRealisateur3" type="text" />,<input id="formAnimeRealisateur4" type="text" />,<input id="formAnimeRealisateur5" type="text" /></td></tr>
+							<tr><td>Producteurs : </td><td><input id="formAnimeProducteur1" type="text" />,<input id="formAnimeProducteur2" type="text" />,<input id="formAnimeProducteur3" type="text" />,<input id="formAnimeProducteur4" type="text" />,<input id="formAnimeProducteur5" type="text" /></td></tr>
+							<tr><td>Scénaristes : </td><td><input id="formAnimeScenariste1" type="text" />,<input id="formAnimeScenariste2" type="text" />,<input id="formAnimeScenariste3" type="text" />,<input id="formAnimeScenariste4" type="text" />,<input id="formAnimeScenariste5" type="text" /></td></tr>
+							<tr><td>Studio : </td><td><input id="formAnimeStudio" type="text" /></td></tr>
+							<tr><td>Compositeur : </td><td><input id="formAnimeCompositeur1" type="text" />,<input id="formAnimeCompositeur2" type="text" />,<input id="formAnimeCompositeur3" type="text" />,<input id="formAnimeCompositeur4" type="text" />,<input id="formAnimeCompositeur5" type="text" /></td></tr>
+							<tr><td>Musique : </td><td><input id="formAnimeMusique" type="text" /></td></tr>
+							<tr><td>Licence : </td><td><input id="formAnimeLicence" type="text" /></td></tr>
+							<tr><td valign="top">Autres licences : </td><td>
+								<table><tbody><tr>
+									<td><h4>pays</h4></td><td><h4>licence</h4></td></tr>
+									<tr><td><input id="formAnimePaysAutreLicence1" type="text"/></td><td><input id="formAnimeAutreLicence1" type="text" /></td></tr>
+									<tr><td><input id="formAnimePaysAutreLicence2" type="text"/></td><td><input id="formAnimeAutreLicence2" type="text" /></td></tr>
+									<tr><td><input id="formAnimePaysAutreLicence3" type="text"/></td><td><input id="formAnimeAutreLicence3" type="text" /></td></tr>
+								</tbody></table></td></tr>
+								<tr><td>Chaîne : </td><td><input id="formAnimeChaine" type="text" /></td></tr>
+								<tr><td valign="top">Autres chaînes : </td><td>
+									<table><tbody><tr>
+										<td><h4>pays</h4></td><td><h4>chaîne</h4></td></tr>
+										<tr><td><input id="formAnimePaysAutreChaine1" type="text"/></td><td><input id="formAnimeAutreChaine1" type="text" /></td></tr>
+										<tr><td><input id="formAnimePaysAutreChaine2" type="text"/></td><td><input id="formAnimeAutreChaine2" type="text" /></td></tr>
+										<tr><td><input id="formAnimePaysAutreChaine3" type="text"/></td><td><input id="formAnimeAutreChaine3" type="text" /></td></tr>
+									</tbody></table></td></tr>
+									<tr><td>Durée : </td><td><input id="formAnimeDuree" type="text" /></td></tr>
+									<tr><td>Premier épisode : </td><td>
+										<select id="formAnimePremierJour"><option value="">—</option>
+											<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+											<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+											<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+											<option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+											<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+											<option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+											<option>31</option>
+										</select>
+										<select id="formAnimePremierMois"><option value="">—</option>
+											<option>janvier</option><option>février</option><option>mars</option><option>avril</option><option>mai</option><option>juin</option>
+											<option>juillet</option><option>août</option><option>septembre</option><option>octobre</option><option>novembre</option><option>décembre</option>
+										</select>
+										<select id="formAnimePremierAnnee"><option value="">—</option>
+											<option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option>
+											<option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option>
+											<option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option>
+											<option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option>
+											<option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option>
+											<option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option>
+											<option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option>
+											<option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option>
+											<option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option>
+										</select>
+									</td></tr>
+									<tr><td>Dernier épisode : </td><td>
+										<select id="formAnimeDernierJour"><option value="">—</option>
+											<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+											<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+											<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+											<option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+											<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+											<option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+											<option>31</option>
+										</select>
+										<select id="formAnimeDernierMois"><option value="">—</option>
+											<option>janvier</option><option>février</option><option>mars</option><option>avril</option><option>mai</option><option>juin</option>
+											<option>juillet</option><option>août</option><option>septembre</option><option>octobre</option><option>novembre</option><option>décembre</option>
+										</select>
+										<select id="formAnimeDernierAnnee"><option value="">—</option>
+											<option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option>
+											<option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option>
+											<option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option>
+											<option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option>
+											<option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option>
+											<option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option>
+											<option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option>
+											<option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option>
+											<option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option>
+										</select>
+									</td></tr>
+									<tr><td>Sortie unique : </td><td>
+										<select id="formAnimeSortieJour"><option value="">—</option>
+											<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+											<option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+											<option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+											<option>16</option><option>17</option><option>18</option><option>19</option><option>20</option>
+											<option>21</option><option>22</option><option>23</option><option>24</option><option>25</option>
+											<option>26</option><option>27</option><option>28</option><option>29</option><option>30</option>
+											<option>31</option>
+										</select>
+										<select id="formAnimeSortieMois"><option value="">—</option>
+											<option>janvier</option><option>février</option><option>mars</option><option>avril</option><option>mai</option><option>juin</option>
+											<option>juillet</option><option>août</option><option>septembre</option><option>octobre</option><option>novembre</option><option>décembre</option>
+										</select>
+										<select id="formAnimeSortieAnnee"><option value="">—</option>
+											<option>2015</option><option>2014</option><option>2013</option><option>2012</option><option>2011</option><option>2010</option>
+											<option>2009</option><option>2008</option><option>2007</option><option>2006</option><option>2005</option><option>2004</option><option>2003</option><option>2002</option><option>2001</option><option>2000</option>
+											<option>1999</option><option>1998</option><option>1997</option><option>1996</option><option>1995</option><option>1994</option><option>1993</option><option>1992</option><option>1991</option><option>1990</option>
+											<option>1989</option><option>1988</option><option>1987</option><option>1986</option><option>1985</option><option>1984</option><option>1983</option><option>1982</option><option>1981</option><option>1980</option>
+											<option>1979</option><option>1978</option><option>1977</option><option>1976</option><option>1975</option><option>1974</option><option>1973</option><option>1972</option><option>1971</option><option>1970</option>
+											<option>1969</option><option>1968</option><option>1967</option><option>1966</option><option>1965</option><option>1964</option><option>1963</option><option>1962</option><option>1961</option><option>1960</option>
+											<option>1959</option><option>1958</option><option>1957</option><option>1956</option><option>1955</option><option>1954</option><option>1953</option><option>1952</option><option>1951</option><option>1950</option>
+											<option>1949</option><option>1948</option><option>1947</option><option>1946</option><option>1945</option><option>1944</option><option>1943</option><option>1942</option><option>1941</option><option>1940</option>
+											<option>1939</option><option>1938</option><option>1937</option><option>1936</option><option>1935</option><option>1934</option><option>1933</option><option>1932</option><option>1931</option><option>1930</option>
+										</select>
+										<i> Ce champ n'est à renseigner que si l'ajout concerne un film, un <a href="http://fr.wikipedia.org/wiki/Original Video Animation">OAV</a> ou un <a href="http://fr.wikipedia.org/wiki/Original Net Animation">ONA</a>. Il ne sera de toute façon pas pris en compte dans le cas contraire.</i>
+									</td></tr>
+									<tr><td>Nombre d'épisodes : </td><td><input id="formAnimeNombre" type="text" />
+									</td></tr>
+									<tr><td>Liste des épisodes : </td><td><input id="formAnimeListe" type="text"/></td></tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="formulaire">
+							<table>
+								<tr><td valign="top">Ajouter un module:</td><td><input id="buttonAddModule0" type="button" value="+" onclick="addModule(1)"/>
+									<table>
+										<tbody id="formModule1">
+											<tr><td><input type="radio" name="formModule1" value="moduleManga"/>Manga<input type="radio" name="formModule1" value="moduleAnime"/>Anime</td><td><input id="buttonAddModule1" type="button" value="+" onclick="addModule(2)"/></td><td><input id="buttonRemModule1" type="button" value="-" onclick="remModule(1)"/></td></tr>
+										</tbody>
+										<tbody id="formModule2">
+											<tr><td><input type="radio" name="formModule2" value="moduleManga"/>Manga<input type="radio" name="formModule2" value="moduleAnime"/>Anime</td><td><input id="buttonAddModule2" type="button" value="+" onclick="addModule(3)"/></td><td><input id="buttonRemModule2" type="button" value="-" onclick="remModule(2)"/></td></tr>
+										</tbody>
+										<tbody id="formModule3">
+											<tr><td><input type="radio" name="formModule3" value="moduleManga"/>Manga<input type="radio" name="formModule3" value="moduleAnime"/>Anime</td><td><input id="buttonAddModule3" type="button" value="+" disabled="disabled"/></td><td><input id="buttonRemModule3" type="button" value="-" onclick="remModule(3)"/></td></tr>
+										</tbody>
+									</table></td></tr>
+								</table>
+							</div>
+							<div class="formulaire">
+								<table>
+									<tr><td valign="top">Classement :</td>
+										<td valign="top"><input id="formTriCategorie" type="text" /><br/><input type="button" value="Générer ce champ" onclick="autoSort()" /></td>
+										<td><i>Permet de personnaliser le classement de l'article dans les catégories. Voir l'<a href="http://fr.wikipedia.org/wiki/Aide:Cat%C3%A9gorie#Comment_.C3.A9chapper_au_classement_.C2.AB_par_d.C3.A9faut_.C2.BB">aide complète concernant les catégories</a>. Le bouton « générer ce champ » permet de réaliser les traitements classiques, comme retirer les caractères accentués ou supprimer un article défini placé en début de titre.</i></td>
+									</tr>
+									<tr><td valign="top">
+										Section&nbsp;:</td>
+										<td valign="top">
+											<select multiple="multiple" size="6" id="formSection">
+												<option>Synopsis</option>
+												<option>Personnages principaux</option>
+												<option>Liste des chapitres</option>
+												<option>Liste des épisodes</option>
+												<option>Notes et références</option>
+												<option>Liens externes</option>
+											</select>
+										</td><td>
+										<i>Permet de rajouter dans le code wiki des sections vides.
+											Ces titres sont là pour créer un découpage de l'article homogénéisé. Aucun ne devrait être généré si du texte n'y est pas ajouté lors de la création de l'ébauche.<br/>
+											Note : Les selections multiples se font à l'aide de CTRL+clic.
+										</i>
+									</td></tr>
+								</table>
+							</div>
+
+							<div class="formulaire">
+								<input type="button" value="Générer l'ébauche" onclick="compute()" />
+								<input type="reset" value="Blanchir le formulaire" onclick="resetDestination()"/>
+								<input type="button" value="Debug" onclick="debug()" />
+							</div>
+						</form>
+
+						<h2>Code wiki</h2>
+
+						<div id="destinationDebug"></div>
+
+						<div id="destinationWiki" onclick="fnSelect('destinationWiki')">vide pour le moment</div>
+
+					</div>
+				</div>
+				<div id="column-one">
+					<div id="p-cactions" class="portlet">
+						<ul>
+							<li id="ca-nstab-main" class="selected"><a href="#">Formulaire</a></li>
+							<li id="ca-talk"><a href="http://fr.wikipedia.org/wiki/Discussion_Utilisateur:Linedwell/Formulaire">Discussion</a></li>
+						</ul>
+					</div>
+			<!--
+			<div class="portlet" id="p-personal">
+			<h5>Outils personnels</h5>
+			<div class="pBody">
+			</div>
+			</div>
+		-->
+		<div class="portlet" id="p-logo">
+			<a style="background-image:url(https://tools.wmflabs.org/Tool_Labs_logo_thumb.png);" href="https://tools.wmflabs.org/" title="Wikimedia Tool Labs"></a>
+		</div>
+		<div class="portlet">
+			<h5>Formulaires</h5>
+			<div class="pBody">
+				<ul>
+					<li><a href="formulaire.html">Manga &amp; Anime</a></li>
+					<li><a href="formulaire-person.html">Auteur</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="visualClear"></div>
+	<div id="footer">
+		<!--<div id="f-poweredbyico">
+     			<a href="http://toolserver.org/"><img src="http://toolserver.org/images/wikimedia-toolserver-button.png" alt="About Toolserver"/></a>
+     		</div>-->
+     		<div id="f-copyrightico">
+     			<a href="http://validator.w3.org/check?uri=referer"><img src="images/valid-xhtml10.png" alt="Valid XHTML 1.0 Transitional"/></a>
+     		</div>
+     		<ul id="f-list">
+     			<li id="lastmod"></li>
+     			<!--<li id="about"><a href="http://meta.wikimedia.org/wiki/Toolserver" title="About Toolserver on Meta">About Toolserver</a></li>-->
+     			<!--<li><a href="http://tools.wikimedia.de/showstatus/index" title="Databases status">Databases status</a></li>-->
+     		</ul>
+     	</div>
+     	<script type="text/javascript">init()</script>
+     	<script type="text/javascript">lastUpdate()</script>
+     </div>
+</body>
+</html>

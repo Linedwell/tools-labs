@@ -1,0 +1,71 @@
+@import "./main.css"; 
+@import "./monobook.css";
+@import "./shared.css";
+
+#destinationWiki {
+        background-color: #E0E0FF;
+        padding: 5px;
+        border: 1px solid #9090FF;
+        font-family: courier;
+        height: 200px;
+        overflow:auto;
+        margin-top:5px;
+        margin-bottom:5px;
+}
+#destinationDebug {
+		background-color: #FFF0F0;
+		padding: 5px;
+		border: 1px solid #FFA0A0;
+        font-family: courier;
+        overflow:auto;
+        margin-top:5px;
+        margin-bottom:5px;
+}
+
+h4 {
+        font-size:10px;
+        margin:0px;
+}
+
+table {background-color:transparent;}
+
+.formulaire {
+        background-color: #E0FFE0;
+        padding: 5px;
+        border: 1px solid #90FF90;
+        margin-top:5px;
+        margin-bottom:5px;
+}
+.formulaire input, .formulaire select {
+        background-color: #F0FFF0;
+        border: 1px solid #90FF90;
+}
+
+.formulaireModule1, .formulaireModule2, .formulaireModule3 {
+        background-color: #E0FFE0;
+        padding: 5px;
+        border: 1px solid #90FF90;
+        margin-top:5px;
+        margin-bottom:5px;
+}
+
+.version {
+        background-color: #FFF0F0;
+        border: 1px solid #FFA0A0;
+        margin-top:5px;
+        margin-bottom:5px;
+        padding:5px;
+}
+
+.warning {
+        background-color: #FFF0F0;
+        border: 5px solid #FFA0A0;
+        margin-top:5px;
+        margin-bottom:5px;
+        padding:5px;
+}
+
+.unused {
+        background-color: #FFF0F0;
+        border: 1px solid #FFA0A0;
+}
