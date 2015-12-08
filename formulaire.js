@@ -923,7 +923,7 @@ function initData() {
 	c.setListeVolumes(document.getElementById(form+"Liste").value)
 	
 	trace('init : modules')
-	for(i = 1 ; i <= 3 ; i++) {
+	for(i = 1 ; i <= counter ; i++) {
 		module = getCheckedRadio("formModule"+i)
 		if(module) c.addModule(module)
 	}
@@ -965,7 +965,8 @@ function debug(text) {
 
 function resetDestination() {
 	document.getElementsByName("formRadio")[0].checked = true
-	toggleForm()
+	clearModule();
+	toggleForm();
 	debugDestination = document.getElementById("destinationDebug")
 	debugDestination.innerHTML = ''
 	debugDestination.style.display = 'none';
@@ -1006,20 +1007,38 @@ function uncheckRadio(radioName) {
 	}
 }
 
-function addModule(n) {
-	if(getCheckedRadio("formModule"+(n-1)) || n == 1) {
-		if(n == 2) document.getElementById("formModule"+(n-1)).style.display = 'table-row-group';
-		document.getElementById("formModule"+n).style.display = 'table-row-group';
-		document.getElementById("buttonAddModule"+(n-1)).style.display = 'none';
-		if(document.getElementById("buttonRemModule"+(n-1))) document.getElementById("buttonRemModule"+(n-1)).style.display = 'none';
+var counter = 0;
+var limit = 3;
+function addModule() {
+	if(getCheckedRadio("formModule"+counter) || counter == 0) {
+		if(counter < limit) {
+			counter++;
+			var elementModule = document.createElement("tbody");
+			elementModule.setAttribute("id","formModule"+counter);
+			elementModule.innerHTML = '<tr><td><input type="radio" name="formModule'+counter+'"" value="moduleManga"/>Manga<input type="radio" name="formModule'+counter+'" value="moduleAnime"/>Anime</td>'
+			+'<td><input id="buttonAddModule'+counter+'" type="button" value="+" onclick="addModule()"/></td><td><input id="buttonRemModule'+counter+'" type="button" value="-" onclick="remModule()"/></td></tr>'
+			document.getElementById("formModule").appendChild(elementModule);
+			if (counter == limit) document.getElementById("buttonAddModule"+counter).setAttribute("disabled","disabled"); //Si on a atteint la limite de modules additionnels, on désactive le bouton d'ajout
+			document.getElementById("buttonAddModule"+(counter-1)).style.display = 'none';
+			if(document.getElementById("buttonRemModule"+(counter-1))) document.getElementById("buttonRemModule"+(counter-1)).style.display = 'none';
+		}
 	}
 }
 
-function remModule(n) {
-	document.getElementById("buttonAddModule"+(n-1)).style.display = 'block';
-	if(document.getElementById("buttonRemModule"+(n-1))) document.getElementById("buttonRemModule"+(n-1)).style.display = 'block';
-	document.getElementById("formModule"+n).style.display = 'none';
-	uncheckRadio("formModule"+n);
+function remModule() {
+	if(counter > 0) {
+		var elementModule = document.getElementById("formModule"+counter);
+		elementModule.parentNode.removeChild(elementModule);
+		document.getElementById("buttonAddModule"+(counter-1)).style.display = 'block';
+		if(document.getElementById("buttonRemModule"+(counter-1))) document.getElementById("buttonRemModule"+(counter-1)).style.display = 'block';
+		counter--;
+	}
+}
+
+function clearModule() {
+	while(counter > 0) {
+		remModule();
+	}
 }
 
 function autoSort() {
@@ -1111,8 +1130,5 @@ function compute() {
 function init() {
 	toggleForm()
 	document.getElementById("destinationDebug").style.display = 'none';
-	document.getElementById("formModule1").style.display = 'none';
-	document.getElementById("formModule2").style.display = 'none';
-	document.getElementById("formModule3").style.display = 'none';
 	if(navigator.appName == "Microsoft Internet Explorer") { document.getElementById("warnMSIE").style.display = null; }
 }
