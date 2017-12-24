@@ -71,6 +71,6 @@ table {background-color:transparent;}
 }
 
 .tool-logo {
-	background-image: url(images/toolforge-logo-with-text.png);
+	background-image: url(../images/toolforge-logo-with-text.png);
 	background-size: 135px;
 }
