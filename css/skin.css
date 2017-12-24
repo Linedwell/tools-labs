@@ -69,3 +69,8 @@ table {background-color:transparent;}
         background-color: #FFF0F0;
         border: 1px solid #FFA0A0;
 }
+
+.tool-logo {
+	background-image: url(images/toolforge-logo-with-text.png);
+	background-size: 135px;
+}
