@@ -675,7 +675,7 @@ function ClassCompute() {
 			
 			text = ""
 			if(this.studio != '') text = "[[" + this.studio + "]]"
-			values['studio'] = text
+			values['studio_animation'] = text
 			
 			text = ""
 			if(this.musique != '') text = "[[" + this.musique + "]]"
@@ -686,7 +686,7 @@ function ClassCompute() {
 			/* licences */
 			text = ""
 			if(this.licence != '') text = "[[" + this.licence + "]]"
-			values['licence'] = text
+			values['licence_original'] = text
 			
 			text = ""
 			for(i in this.autresLicences) {
@@ -694,7 +694,7 @@ function ClassCompute() {
 				if(this.autresLicences[i][0] != '') { text += "{{Drapeau|" + this.autresLicences[i][0] + "}} " }
 				text += "[[" + this.autresLicences[i][1] + "]]"					
 			}
-			values['autre_licence'] = text
+			values['licence_francophone'] = text
 						
 			/* chaines */
 			text = ""					
@@ -787,7 +787,7 @@ function ClassCompute() {
 		}
 		if(this.form == "formAnime") {
 			template += '{{Infobox Animation et bande dessinée asiatiques/Vidéo' + NEWLINE + ' | titre = ' + NEWLINE
-			champs = new Array('format','origine', 'type', 'réalisateur1','réalisateur2','réalisateur3','réalisateur4','réalisateur5','producteur1','producteur2','producteur3','producteur4','producteur5','scénariste1','scénariste2','scénariste3','scénariste4','scénariste5','studio','compositeur1','compositeur2','compositeur3','compositeur4','compositeur5','musique','licence','autre_licence','chaine','autre_chaine','durée','date_sortie','début_diffusion','fin_diffusion','nb_épisodes','liste_épisodes')
+			champs = new Array('format','origine', 'type', 'réalisateur1','réalisateur2','réalisateur3','réalisateur4','réalisateur5','producteur1','producteur2','producteur3','producteur4','producteur5','scénariste1','scénariste2','scénariste3','scénariste4','scénariste5','studio_animation','compositeur1','compositeur2','compositeur3','compositeur4','compositeur5','musique','licence_original','licence_francophone','chaine','autre_chaine','durée','date_sortie','début_diffusion','fin_diffusion','nb_épisodes','liste_épisodes')
 									
 		}
 		for (i in champs) {
