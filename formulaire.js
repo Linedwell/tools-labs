@@ -26,10 +26,10 @@ introMapping['manfra'] = "[[manfra]]"
 introMapping['manga'] = "[[manga]]"
 introMapping['manhua'] = "[[manhua]]"
 introMapping['manhwa'] = "[[manhwa]]"
-introMapping['josei'] = "''[[jōsei]]''"
-introMapping['jōsei'] = "''[[jōsei]]''"
+introMapping['josei'] = "''[[josei]]''"
+introMapping['jōsei'] = "''[[josei]]''"
 introMapping['kodomo'] = "''[[kodomo]]''"
-introMapping['redikomi'] = "''[[jōsei]]''"
+introMapping['redikomi'] = "''[[josei]]''"
 introMapping['seinen'] = "''[[seinen]]''"
 introMapping['shojo'] = "''[[shōjo]]''"
 introMapping['shōjo'] = "''[[shōjo]]''"
@@ -40,10 +40,10 @@ introMapping['sunjong'] = "''[[sunjong]]''"
 
 categoryMapping = new Array();
 /* types */
-categoryMapping['josei'] = '[[Catégorie:Jōsei manga]]'
-categoryMapping['jōsei'] = '[[Catégorie:Jōsei manga]]'
+categoryMapping['josei'] = '[[Catégorie:Josei manga]]'
+categoryMapping['jōsei'] = '[[Catégorie:Josei manga]]'
 categoryMapping['kodomo'] = '[[Catégorie:Kodomo manga]]'
-categoryMapping['redikomi'] = '[[Catégorie:Jōsei manga]]'
+categoryMapping['redikomi'] = '[[Catégorie:Josei manga]]'
 categoryMapping['seinen'] = '[[Catégorie:Seinen manga]]'
 categoryMapping['shojo'] = '[[Catégorie:Shōjo manga]]'
 categoryMapping['shōjo'] = '[[Catégorie:Shōjo manga]]'
