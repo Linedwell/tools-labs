@@ -1045,37 +1045,7 @@ function autoSort() {
 	titre = document.getElementById("formTitre").value
 
 	// vire les accents
-	sort = titre
-	sort = sort.replace('À', 'A')
-	sort = sort.replace('Â', 'A')
-	sort = sort.replace('Ä', 'A')
-	sort = sort.replace('É', 'E')
-	sort = sort.replace('È', 'E')
-	sort = sort.replace('Ê', 'E')
-	sort = sort.replace('Ë', 'E')
-	sort = sort.replace('Ï', 'I')
-	sort = sort.replace('Î', 'I')
-	sort = sort.replace('Ô', 'O')
-	sort = sort.replace('Ö', 'O')
-	sort = sort.replace('Ù', 'U')
-	sort = sort.replace('Û', 'U')
-	sort = sort.replace('Ü', 'U')
-	sort = sort.replace('Ç', 'C')
-	sort = sort.replace('à', 'a')
-	sort = sort.replace('â', 'a')
-	sort = sort.replace('ä', 'a')
-	sort = sort.replace('é', 'e')
-	sort = sort.replace('è', 'e')
-	sort = sort.replace('ê', 'e')
-	sort = sort.replace('ë', 'e')
-	sort = sort.replace('ï', 'i')
-	sort = sort.replace('î', 'i')
-	sort = sort.replace('ô', 'o')
-	sort = sort.replace('ö', 'o')
-	sort = sort.replace('ù', 'u')
-	sort = sort.replace('û', 'u')
-	sort = sort.replace('ü', 'u')
-	sort = sort.replace('ç', 'c')
+	sort = titre.normalize("NFD").replace(/\p{Diacritic}/gu, "")
 
 	// supprime les  "the, le, la, les, l'" initial
 	if (sort.toUpperCase().indexOf('THE ') == 0) {
