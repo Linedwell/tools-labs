@@ -266,7 +266,7 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		if (this.origine == "Japon") {
 			transcript = "";
 			if (this.transcription != '') transcript = "|" + this.transcription;
-			result += "{{Japonais|'''" + this.nom + "'''|" + this.nomKanji + trans + "}} "
+			result += "{{Japonais|'''" + this.nom + "'''|" + this.nomKanji + transcript + "}} "
 			habitant = genre;
 		}
 		else if (this.origine == "Chine") {
