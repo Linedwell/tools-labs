@@ -31,6 +31,7 @@ introMapping['mangaka'] = "''[[mangaka]]''"
 introMapping['manhuajia'] = "''[[manhuajia]]''"
 introMapping['manhwaga'] = "''[[manhwaga]]''"
 introMapping['auteur de bande dessinée'] = 'auteur de bande dessinée'
+introMapping['autrice de bande dessinée'] = 'autrice de bande dessinée'
 introMapping['seiyu'] = "''[[seiyu]]''"
 
 
@@ -124,7 +125,7 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		this.origine = "";
 		this.naissance = null;
 		this.mort = null;
-		this.sexe = null;
+		this.accord = null;
 
 		this.editeurs = new Array();
 		this.maitres = new Array();
@@ -166,9 +167,9 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		this.mort = new Array(jour, mois, annee);
 	}
 
-	this.setSexe = function(sexe) {
-		this.sexe = new Boolean(sexe);
-		trace(this.sexe);
+	this.setAccord = function(accord) {
+		this.accord = new Boolean(accord);
+		trace(this.accord);
 	}
 
 	this.addEditeur = function(editeur) {
@@ -257,30 +258,32 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 	this.generateWikiIntro = function() {
 		var result = '';
 		var genre ='';
-		var hab ='';
+		var habitant ='';
+		var job = metier[this.origine];
 
-		if (this.sexe == true) genre = "e";
+		if (this.accord == true) genre = "e";
 
 		if (this.origine == "Japon") {
-			trans = "";
-			if (this.transcription != '') trans = "|" + this.transcription;
+			transcript = "";
+			if (this.transcription != '') transcript = "|" + this.transcription;
 			result += "{{Japonais|'''" + this.nom + "'''|" + this.nomKanji + trans + "}} "
-			hab = genre;
+			habitant = genre;
 		}
 		else if (this.origine == "Chine") {
 			result += "'''" + this.nom + "''' ({{Chinois|c=" + this.nomKanji + "}}) "
-			hab = genre;
+			habitant = genre;
 		}
 		else if (this.origine == "Corée du nord" || this.origine == "Corée du sud") {
 			result += "'''" + this.nom + "''' ({{Coréen|" + this.nomKanji +"}}) "
-			if(this.sexe == true) { hab = "ne" }
+			if(this.accord == true) { habitant = "ne" }
 		}
 		else {
 			result += "'''" + this.nom + "''' "
-			hab = genre;
+			habitant = genre;
+			if(this.accord == true) { job = "autrice de bande dessinée" }
 		}
 		result += " est un" + genre + " ";
-		subresult = "" + this.generateWikiInIntro(metier[this.origine]) + " " + this.generateWikiInIntro(this.origine) + hab;
+		subresult = "" + this.generateWikiInIntro(job) + " " + this.generateWikiInIntro(this.origine) + habitant;
 		
 		result += subresult; 
 					
@@ -499,7 +502,7 @@ function initData() {
 	annee = document.getElementById("formDecesAnnee").value
 	c.setMort(jour, mois, annee)
 		
-	c.setSexe(document.getElementsByName("formSexe")[1].checked); //On regarde si la valeur choisie est "Femme".
+	c.setAccord(document.getElementsByName("formAccord")[1].checked); //On regarde si la valeur choisie est "Femme".
 		
 
 	trace('init : éditeurs')
