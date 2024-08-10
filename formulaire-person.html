@@ -27,7 +27,7 @@
 					<div class="formulaire">
 						<table>
 							<tbody class="formCommon">
-								<tr><td>Nom : </td><td><input id="formAuteurNom" type="text" /> <input id="formAuteurEbauche" type="checkbox" />ébauche ? </td></tr>
+								<tr><td>Nom : </td><td><input id="formAuteurNom" type="text" /> <input id="formAuteurEbauche" type="checkbox" checked />ébauche ? </td></tr>
 								<tr><td>Pseudo : </td><td><input id="formAuteurPseudo" type="text" /></td></tr>
 								<tr><td>Nom kanji : </td><td><input id="formAuteurNomKanji" type="text" /></td></tr>
 								<tr><td>Transcription : </td><td><input id="formAuteurTranscription" type="text" /></td></tr>
@@ -37,7 +37,7 @@
 										<option>Corée du nord</option>
 										<option>Corée du sud</option>
 										<option>France</option>
-										<option>Japon</option>
+										<option selected>Japon</option>
 									</select>
 								</td></tr>
 								<tr><td>Date de naissance : </td><td>
@@ -120,7 +120,7 @@
 
 			<div class="formulaire">
 				<input type="button" value="Générer l'ébauche" onclick="compute()" />
-				<input type="reset" value="Blanchir le formulaire" onclick="resetDestination()"/>
+				<input type="reset" value="Vider le formulaire" onclick="resetDestination()"/>
 				<input type="button" value="Debug" onclick="debug()" />
 			</div>
 		</form>

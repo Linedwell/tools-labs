@@ -320,10 +320,10 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		if(this.oeuvres.length) {
 			text = [this.oeuvres.slice(0, -1).join("]]'', ''[["), this.oeuvres.slice(-1)[0]].join(this.oeuvres.length < 2 ? '' : "]]' et ''[[");
 			subresult = "Il est principalement connu pour être le créateur des séries ''[[" + text + "]]''"
-		}
 
-		result += subresult
-		result += ". "
+			result += subresult
+			result += ". "
+		}
 
 		return result;
 	}
