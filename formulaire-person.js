@@ -262,7 +262,7 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		var job = metier[this.origine];
 
 		if (this.accord == true) genre = "e";
-
+		// Nationalité
 		if (this.origine == "Japon") {
 			transcript = "";
 			if (this.transcription != '') transcript = "|" + this.transcription;
@@ -286,7 +286,7 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		subresult = "" + this.generateWikiInIntro(job) + " " + this.generateWikiInIntro(this.origine) + habitant;
 		
 		result += subresult; 
-					
+		//Date de naissance			
 		subresult = "{{Date|"
 		j = this.naissance[0]
 		m = this.naissance[1]
@@ -301,6 +301,7 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 
 		result += subresult
 
+		//Date de décès (si applicable)
 		subresult = "{{Date|"
 		j = this.mort[0]
 		m = this.mort[1]
@@ -311,6 +312,15 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		if (a != '') subresult += '|' + a + '}}'
 		if (j == '' && m == '' && a == '') subresult = ""
 		if (a != '' && m == '' && j == '') subresult = " et décédé" + genre + " en " + a
+
+		result += subresult
+		result += ". "
+
+		//Oeuvres notables
+		if(this.oeuvres.length) {
+			text = [this.oeuvres.slice(0, -1).join("]]'', ''[["), this.oeuvres.slice(-1)[0]].join(this.oeuvres.length < 2 ? '' : "]]' et ''[[");
+			subresult = "Il est principalement connu pour être le créateur des séries ''[[" + text + "]]''"
+		}
 
 		result += subresult
 		result += ". "
@@ -397,7 +407,7 @@ function initData() {
 		
 	c.setAccord(document.getElementsByName("formAccord")[1].checked); //On regarde si la valeur choisie est "Femme".
 		
-
+/*
 	trace('init : éditeurs')
 	for (var i = 1; i <= 3; i++) {
 		edit = document.getElementById("formAuteurEditeur"+i).value
@@ -413,6 +423,7 @@ function initData() {
 		disc = document.getElementById("formAuteurDisciple"+i).value
 		if (disc != '') { c.addDisciple(disc) }
 	}
+*/
 
 	trace('init : nouvelle, oeuvre')
 	//c.setNouvelle(document.getElementById("formAuteurNouvelle").value)
