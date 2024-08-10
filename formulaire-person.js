@@ -326,7 +326,7 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		if(this.oeuvres.length) {
 			this.oeuvres.length > 1 ? quantite = "les séries" : quantite = "la série"
 			text = [this.oeuvres.slice(0, -1).join("]]'', ''[["), this.oeuvres.slice(-1)[0]].join(this.oeuvres.length < 2 ? '' : "]]' et ''[[");
-			subresult = pronom +" est principalement connu" + accordgenre + "pour avoir créé " + quantite + " ''[[" + text + "]]''"
+			subresult = pronom +" est principalement connu" + accordgenre + " pour avoir créé " + quantite + " ''[[" + text + "]]''"
 
 			result += subresult
 			result += ". "
