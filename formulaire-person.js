@@ -257,21 +257,27 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 
 	this.generateWikiIntro = function() {
 		var result = '';
-		var genre ='';
+		var pronom = 'Il';
+		var accordgenre ='';
 		var habitant ='';
 		var job = metier[this.origine];
 
-		if (this.accord == true) genre = "e";
+
+		if (this.accord == true) {
+			pronom = "Elle";
+			accordgenre = "e";
+		}
+
 		// Nationalité
 		if (this.origine == "Japon") {
 			transcript = "";
 			if (this.transcription != '') transcript = "|" + this.transcription;
 			result += "{{Japonais|'''" + this.nom + "'''|" + this.nomKanji + transcript + "}} "
-			habitant = genre;
+			habitant = accordgenre;
 		}
 		else if (this.origine == "Chine") {
 			result += "'''" + this.nom + "''' ({{Chinois|c=" + this.nomKanji + "}}) "
-			habitant = genre;
+			habitant = accordgenre;
 		}
 		else if (this.origine == "Corée du nord" || this.origine == "Corée du sud") {
 			result += "'''" + this.nom + "''' ({{Coréen|" + this.nomKanji +"}}) "
@@ -279,10 +285,10 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		}
 		else {
 			result += "'''" + this.nom + "''' "
-			habitant = genre;
+			habitant = accordgenre;
 			if(this.accord == true) { job = "autrice de bande dessinée" }
 		}
-		result += " est un" + genre + " ";
+		result += " est un" + accordgenre + " ";
 		subresult = "" + this.generateWikiInIntro(job) + " " + this.generateWikiInIntro(this.origine) + habitant;
 		
 		result += subresult; 
@@ -291,13 +297,13 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		j = this.naissance[0]
 		m = this.naissance[1]
 		a = this.naissance[2]
-		if (j != '' && m != '' && a != '') subresult = " né" + genre + " le " + subresult + j
-		if (j == '' && (m != '' || a != '')) subresult = " né" + genre + " en " + subresult
+		if (j != '' && m != '' && a != '') subresult = " né" + accordgenre + " le " + subresult + j
+		if (j == '' && (m != '' || a != '')) subresult = " né" + accordgenre + " en " + subresult
 		if (m != '' && a != '') subresult += '|' + m
 		if (a != '') subresult += '|' + a + '}}'
 		if (j == '' && m == '' && a == '') subresult = ""
-		if (a != '' && m == '' && j == '') subresult = " né" + genre + " en " + a
-		if (a == '' && m != '' && j != '') subresult = " né" + genre + " un " + subresult + j + "|" + m + "}}"
+		if (a != '' && m == '' && j == '') subresult = " né" + accordgenre + " en " + a
+		if (a == '' && m != '' && j != '') subresult = " né" + accordgenre + " un " + subresult + j + "|" + m + "}}"
 
 		result += subresult
 
@@ -306,20 +312,21 @@ sectionMapping['Liens externes'] = "== Liens externes ==<br/>{{...}}"
 		j = this.mort[0]
 		m = this.mort[1]
 		a = this.mort[2]
-		if (j != '' && m != '' && a != '') subresult = " et décédé" + genre + " le " + subresult + j
-		if (j == '' && (m != '' || a != '')) subresult = " et décédé" + genre + " en " + subresult
+		if (j != '' && m != '' && a != '') subresult = " et décédé" + accordgenre + " le " + subresult + j
+		if (j == '' && (m != '' || a != '')) subresult = " et décédé" + accordgenre + " en " + subresult
 		if (m != '' && a != '') subresult += '|' + m
 		if (a != '') subresult += '|' + a + '}}'
 		if (j == '' && m == '' && a == '') subresult = ""
-		if (a != '' && m == '' && j == '') subresult = " et décédé" + genre + " en " + a
+		if (a != '' && m == '' && j == '') subresult = " et décédé" + accordgenre + " en " + a
 
 		result += subresult
 		result += ". "
 
 		//Oeuvres notables
 		if(this.oeuvres.length) {
+			this.oeuvres.length > 1 ? quantite = "les séries" : quantite = "la série"
 			text = [this.oeuvres.slice(0, -1).join("]]'', ''[["), this.oeuvres.slice(-1)[0]].join(this.oeuvres.length < 2 ? '' : "]]' et ''[[");
-			subresult = "Il est principalement connu pour être le créateur des séries ''[[" + text + "]]''"
+			subresult = pron +" est principalement connu" + accordgenre + "pour avoir créé " + quantite + " ''[[" + text + "]]''"
 
 			result += subresult
 			result += ". "
